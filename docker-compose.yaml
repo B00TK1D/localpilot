@@ -1,0 +1,12 @@
+services:
+  localpilot:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      LM_STUDIO_BASE_URL: ${LM_STUDIO_BASE_URL:-http://host.docker.internal:1234}
+      LM_STUDIO_MODEL: ${LM_STUDIO_MODEL:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
